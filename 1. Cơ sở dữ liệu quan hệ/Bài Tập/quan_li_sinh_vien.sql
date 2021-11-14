@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.11, for macos10.13 (x86_64)
 --
--- Host: localhost    Database: student-management
+-- Host: localhost    Database: student_management
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `class`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `class` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,32 +35,34 @@ CREATE TABLE `class` (
 
 LOCK TABLES `class` WRITE;
 /*!40000 ALTER TABLE `class` DISABLE KEYS */;
+INSERT INTO `class` VALUES (1,'codegym');
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Student`
+-- Table structure for table `student`
 --
 
-DROP TABLE IF EXISTS `Student`;
+DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `Student` (
+CREATE TABLE `student` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `age` varchar(45) DEFAULT NULL,
-  `country` varchar(45) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Student`
+-- Dumping data for table `student`
 --
 
-LOCK TABLES `Student` WRITE;
-/*!40000 ALTER TABLE `Student` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Student` ENABLE KEYS */;
+LOCK TABLES `student` WRITE;
+/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` VALUES (1,'vo nhat anh',18,'viet nam');
+/*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -72,9 +74,9 @@ DROP TABLE IF EXISTS `teacher`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `teacher` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `age` varchar(45) DEFAULT NULL,
-  `country` varchar(45) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -85,6 +87,7 @@ CREATE TABLE `teacher` (
 
 LOCK TABLES `teacher` WRITE;
 /*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
+INSERT INTO `teacher` VALUES (1,'truong tan hai',23,'viet nam');
 /*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -97,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-12  9:46:02
+-- Dump completed on 2021-11-14 15:34:35
