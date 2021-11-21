@@ -157,6 +157,65 @@ insert into khach_hang (`ma_khach_hang`, `ho_ten`, `ngay_sinh`, `gioi_tinh`, `di
 insert into khach_hang (`ma_khach_hang`, `ho_ten`, `ngay_sinh`, `gioi_tinh`, `dia_chi`) value ('6', 'Võ Anh Quân', '1996-5-6', 'nam', 'Quảng Bình');
 insert into khach_hang (`ma_khach_hang`, `ho_ten`, `ngay_sinh`, `gioi_tinh`, `dia_chi`) value ('7', 'Võ Nhật Anh', '2000-5-6', 'nam', 'Quảng Nam');
 insert into khach_hang (`ma_khach_hang`, `ho_ten`, `ngay_sinh`, `gioi_tinh`, `dia_chi`) value ('8', 'Võ Anh Quân', '1999-5-6', 'nam', 'Hà Nội');
+insert into  `furama_resort`.`khach_hang` (`ma_khach_hang`, `ma_loai_khach`, `ho_ten`, `ngay_sinh`, `gioi_tinh`, `dia_chi`) value ('9', '1', 'Lê Văn A', '1997-02-01', 'nam', 'Quảng Ngãi');
+insert into  `furama_resort`.`khach_hang` (`ma_khach_hang`, `ma_loai_khach`, `ho_ten`, `ngay_sinh`, `gioi_tinh`, `dia_chi`) value ('10', '3', 'Nguyễn Văn C', '2000-01-07', 'nam', 'Vĩnh Phúc');
+insert into  `furama_resort`.`khach_hang` (`ma_khach_hang`, `ma_loai_khach`, `ho_ten`, `ngay_sinh`, `gioi_tinh`, `dia_chi`) value ('11', '1', 'Nguyên Văn D', '1999-02-08', 'nam', 'Vĩnh Phúc');
+insert into  `furama_resort`.`khach_hang` (`ma_khach_hang`, `ma_loai_khach`, `ho_ten`, `ngay_sinh`, `gioi_tinh`) value ('12', '2', 'Lê Thị A', '2001-01-09', 'nữ');
+update `furama_resort`.`khach_hang` set `dia_chi` = 'Vinh'  where (`ma_khach_hang` = '11');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`, `ma_khach_hang`) value ('4', '2017-04-08', '2020-09-09', '1000', '1', '1', '8');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`, `ma_khach_hang`) value ('5', '2016-03-07', '2017-03-02', '7000', '3', '3', '10');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`, `ma_khach_hang`) value ('6', '2020-09-03', '2021-03-08', '1000', '2', '2', '11');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`, `ma_khach_hang`) value ('7', '2019-04-05', '2021-03-08', '8000', '1', '1', '12');
+insert into `furama_resort`.`nhan_vien` (`ma_nhan_vien`, `ho_va_ten`) value ('5', 'Nguyễn Văn A');
+insert into `furama_resort`.`nhan_vien` (`ma_nhan_vien`, `ho_va_ten`) value ('6', 'Lê Thị C');
+insert into `furama_resort`.`nhan_vien` (`ma_nhan_vien`, `ho_va_ten`) value ('7', 'Võ Nhật B');
+insert into `furama_resort`.`hop_dong_chi_tiet` (`ma_hop_dong_chi_tiet`, `ma_hop_dong`, `ma_dich_vu_di_kem`, `so_luong`) value ('3', '3', '2', '3');
+insert into `furama_resort`.`hop_dong_chi_tiet` (`ma_hop_dong_chi_tiet`, `ma_hop_dong`, `ma_dich_vu_di_kem`, `so_luong`) value ('4', '4', '1', '1');
+insert into `furama_resort`.`hop_dong_chi_tiet` (`ma_hop_dong_chi_tiet`, `ma_hop_dong`, `ma_dich_vu_di_kem`, `so_luong`) value ('5', '5', '3', '2');
+insert into `furama_resort`.`hop_dong_chi_tiet` (`ma_hop_dong_chi_tiet`, `ma_hop_dong`, `ma_dich_vu_di_kem`, `so_luong`) value ('6', '6', '2', '1');
+insert into `furama_resort`.`hop_dong_chi_tiet` (`ma_hop_dong_chi_tiet`, `ma_hop_dong`, `ma_dich_vu_di_kem`) value ('7', '7', '1');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '2' where (`ma_khach_hang` = '7');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '1' where (`ma_khach_hang` = '8');
+insert into `furama_resort`.`bo_phan` (`ma_bo_phan`, `ten_bo_phan`) value ('1', 'Nhân sự');
+insert into `furama_resort`.`bo_phan` (`ma_bo_phan`, `ten_bo_phan`) value ('2', 'Marketing');
+insert into `furama_resort`.`bo_phan` (`ma_bo_phan`, `ten_bo_phan`) value ('3', 'Chăm sóc khách hàng');
+insert into `furama_resort`.`trinh_do` (`ma_trinh_do`, `ten_trinh_do`) value ('1', 'Chuyên môn cao');
+insert into `furama_resort`.`trinh_do` (`ma_trinh_do`, `ten_trinh_do`) value ('2', 'Khá');
+insert into `furama_resort`.`trinh_do` (`ma_trinh_do`) value ('3');
+update `furama_resort`.`nhan_vien` set `ma_trinh_do` = '1', `ma_bo_phan` = '1' where (`ma_nhan_vien` = '1');
+update `furama_resort`.`nhan_vien` set `ma_trinh_do` = '2', `ma_bo_phan` = '2' where (`ma_nhan_vien` = '2');
+update `furama_resort`.`nhan_vien` set `ma_trinh_do` = '1', `ma_bo_phan` = '3' where (`ma_nhan_vien` = '3');
+update `furama_resort`.`nhan_vien` set `ma_trinh_do` = '3', `ma_bo_phan` = '2' where (`ma_nhan_vien` = '4');
+update `furama_resort`.`nhan_vien` set `ma_trinh_do` = '2', `ma_bo_phan` = '1' where (`ma_nhan_vien` = '5');
+update `furama_resort`.`nhan_vien` set `ma_trinh_do` = '1', `ma_bo_phan` = '3' where (`ma_nhan_vien` = '6');
+update `furama_resort`.`nhan_vien` set `ma_trinh_do` = '2', `ma_bo_phan` = '2' where (`ma_nhan_vien` = '7');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`) value ('8', '2018-04-03', '2018-09-01', '12000', '7', '1');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`, `ma_khach_hang`) value ('9', '2018-05-06', '2018-07-02', '1200', '7', '1', '3');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`, `ma_khach_hang`) value ('10', '2018-07-09', '2019-06-01', '1000', '6', '3', '5');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`, `ma_khach_hang`) value ('11', '2019-06-05', '2019-07-05', '2000', '6', '3', '5');
+insert into `furama_resort`.`hop_dong` (`ma_hop_dong`, `ngay_lam_hop_dong`, `ngay_ket_thuc`, `tien_dat_coc`, `ma_nhan_vien`, `ma_dich_vu`) value ('12', '2018-07-04', '2018-08-04', '3000', '6', '3');
+insert into `furama_resort`.`loai_khach` (`ma_loai_khach`, `ten_loai_khach`) value ('4', 'Platinum');
+update `furama_resort`.`hop_dong` set `tong_tien` = '12000000' where (`ma_hop_dong` = '1');
+update `furama_resort`.`hop_dong` set `tong_tien` = '34000000' where (`ma_hop_dong` = '2');
+update `furama_resort`.`hop_dong` set `tong_tien` = '2100000' where (`ma_hop_dong` = '3');
+update `furama_resort`.`hop_dong` set `tong_tien` = '2100000' where (`ma_hop_dong` = '4');
+update `furama_resort`.`hop_dong` set `tong_tien` = '9000000' where (`ma_hop_dong` = '5');
+update `furama_resort`.`hop_dong` set `tong_tien` = '30000000' where (`ma_hop_dong` = '6');
+update `furama_resort`.`hop_dong` set `tong_tien` = '8000000' where (`ma_hop_dong` = '7');
+update `furama_resort`.`hop_dong` set `tong_tien` = '1000000' where (`ma_hop_dong` = '8');
+update `furama_resort`.`hop_dong` set `tong_tien` = '21000000' where (`ma_hop_dong` = '9');
+update `furama_resort`.`hop_dong` set `tong_tien` = '19000000' where (`ma_hop_dong` = '10');
+update `furama_resort`.`hop_dong` set `tong_tien` = '2200000' where (`ma_hop_dong` = '11');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '12');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '11');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '10');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '9');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '8');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '7');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '6');
+update `furama_resort`.`khach_hang` set `ma_loai_khach` = '4' where (`ma_khach_hang` = '5');
+update `furama_resort`.`hop_dong` set `ma_khach_hang` = '9' where (`ma_hop_dong` = '8');
+update `furama_resort`.`hop_dong` set `tong_tien` = '22000000' where (`ma_hop_dong` = '11');
 
 
 -- CURDATE() trong SQL trả về ngày hiện tại có định dạng 'YYYY-MM-DD' hoặc YYYYMMDD-- 
@@ -178,7 +237,8 @@ from khach_hang kh
    inner join loai_khach lk  on kh.ma_loai_khach = lk.ma_loai_khach
    left join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
 where lk.ten_loai_khach = 'Diamond'
-group by ma_khach_hang;
+group by ma_khach_hang
+order by ma_khach_hang asc;
 
 -- 5.	Hiển thị ma_khach_hang, ho_ten, ten_loai_khach, ma_hop_dong, ten_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tong_tien
 --  (Với tổng tiền được tính theo công thức như sau: ChiPhiThue + SoLuong*Gia, với SoLuong 
@@ -242,6 +302,12 @@ group by  khach_hang.ho_ten;
 
 -- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 
+select dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.tong_tien, month(ngay_lam_hop_dong) as 'thang' , (hop_dong.tong_tien) as 'doanh_thu'
+from hop_dong 
+join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+where(year(hop_dong.ngay_lam_hop_dong) = 2019 ) 
+group by month(ngay_lam_hop_dong);
+
 -- 10.	Hiển thị thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm.
 --  Kết quả hiển thị bao gồm ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem
 --  (được tính dựa trên việc sum so_luong ở dich_vu_di_kem).
@@ -252,4 +318,120 @@ sum(hop_dong_chi_tiet.so_luong) as so_luong_dich_vu_di_kem
 from hop_dong_chi_tiet
 join hop_dong on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
 group by hop_dong.ma_hop_dong;
+
+-- 11.	Hiển thị thông tin các dịch vụ đi kèm đã được sử dụng bởi những khách hàng có 
+-- ten_loai_khach là “Diamond” và có dia_chi ở “Vinh” hoặc “Quảng Ngãi”.
+
+select kh.ma_khach_hang, kh.dia_chi , loai_khach.ma_loai_khach, dich_vu_di_kem.ten_dich_vu_di_kem
+from khach_hang kh 
+
+inner join loai_khach on kh.ma_loai_khach = loai_khach.ma_loai_khach
+
+left join hop_dong on hop_dong.ma_khach_hang = kh.ma_khach_hang
+
+inner join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+
+inner join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+
+where ( loai_khach.ten_loai_khach = 'Diamond' ) and (kh.dia_chi = 'Quảng Ngãi' or kh.dia_chi =  'Vinh');
+
+-- 12.	Hiển thị thông tin ma_hop_dong, ho_ten (nhân viên), ho_ten (khách hàng), so_dien_thoai (khách hàng), ten_dich_vu, so_luong_dich_vu_di_kem
+--  (được tính dựa trên việc sum so_luong ở dich_vu_di_kem), tien_dat_coc của tất cả các dịch vụ đã từng được khách hàng
+--  đặt vào 3 tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.
+
+
+select hop_dong.ma_hop_dong, nhan_vien.ho_va_ten, khach_hang.ho_ten, khach_hang.so_dien_thoai, dich_vu_di_kem.ten_dich_vu_di_kem
+from khach_hang 
+join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+join hop_dong_chi_tiet  on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+join dich_vu_di_kem  on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem 
+join nhan_vien on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+where year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_dong) not in (1, 2, 3, 4, 5, 6); 
+
+-- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng.
+--  (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
+-- 
+
+select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, dvdk.gia,dvdk.don_vi,dvdk.trang_thai ;
+
+-- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
+--  Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung (được tính dựa trên việc count các ma_dich_vu_di_kem).
+-- 	
+
+select hop_dong.ma_hop_dong, dich_vu_di_kem.ten_dich_vu_di_kem, count(dich_vu_di_kem.ma_dich_vu_di_kem) as so_lan_su_dung
+from nhan_vien
+join hop_dong on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+join khach_hang on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+group by dich_vu_di_kem.ma_dich_vu_di_kem
+having so_lan_su_dung = 1
+order by so_lan_su_dung;
+
+-- Câu lệnh fix lỗi :
+-- #1055 - Expression of SELECT list is not in GROUP BY clause and contains nonaggregated column this is incompatible with sql_mode=only_full_group_by
+SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+-- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, trinh_do, ten_bo_phan, so_dien_thoai,
+--  dia_chi mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
+-- 
+select nhan_vien.ma_nhan_vien, nhan_vien.ho_va_ten, trinh_do.ten_trinh_do, bo_phan.ten_bo_phan, nhan_vien.so_dien_thoai, nhan_vien.dia_chi, count(hop_dong.ma_hop_dong) as so_luong_hop_dong
+from nhan_vien
+join trinh_do on trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
+join bo_phan on bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan
+join hop_dong on hop_dong.ma_nhan_vien = hop_dong.ma_nhan_vien
+where year((hop_dong.ngay_lam_hop_dong) between 2018 and 2019)
+group by hop_dong.ma_nhan_vien
+having so_luong_hop_dong <= 3;	
+
+-- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+SET SQL_SAFE_UPDATES=0;
+delete from nhan_vien 
+where nhan_vien.ma_nhan_vien not in ( select nhan_vien.ma_nhan_vien from contract where year(ngay_lam_hop_dong)  between 2017 and 2019 );
+SET SQL_SAFE_UPDATES=1;
+select * from nhan_vien;
+
+-- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond,
+--  chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+create view cap_nhat_thanh_toan_2019 as
+select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, sum(hop_dong.tong_tien) as tong_tien_thanh_toan
+from hop_dong
+join khach_hang on khach_hang.ma_khach_hang =  hop_dong.ma_khach_hang
+join loai_khach on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+where (year(ngay_lam_hop_dong) = 2019) and (loai_khach.ma_loai_khach = 4)
+group by khach_hang.ma_khach_hang;
+
+update khach_hang set ma_loai_khach = 1 where ma_khach_hang in (select ma_khach_hang from cap_nhat_thanh_toan_2019 where tong_tien_thanh_toan > 10000000);
+select * from khach_hang;
+
+-- 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
+
+delete from khach_hang
+ where khach_hang.ma_khach_hang in ( select  hop_dong.ma_khach_hang
+from hop_dong where(year(hop_dong.ngay_lam_hop_dong) < 2016));
+
+-- 19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
+select * from dich_vu_di_kem;
+
+create view so_lan_dung_dich_vu
+as
+select dich_vu_di_kem.ma_dich_vu_di_kem,dich_vu_di_kem.ten_dich_vu_di_kem,dich_vu_di_kem.gia,sum(hop_dong_chi_tiet.so_luong) as so_lan_su_dung
+from dich_vu_di_kem 
+inner join hop_dong_chi_tiet on  hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+group by dich_vu_di_kem.ma_dich_vu_di_kem;
+
+update dich_vu_di_kem set gia = gia*2 where ma_dich_vu_di_kem in (select ma_dich_vu_di_kem from so_lan_dung_dich_vu where so_lan_su_dung >10);
+
+select * from dich_vu_di_kem;
+
+-- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, thông tin hiển thị bao gồm id
+--  (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+
+select ma_nhan_vien as id , ho_va_ten, ngay_sinh, so_dien_thoai, email, dia_chi
+from nhan_vien
+union
+select ma_khach_hang, ho_ten, ngay_sinh, so_dien_thoai, email, dia_chi
+from khach_hang;
+
 
