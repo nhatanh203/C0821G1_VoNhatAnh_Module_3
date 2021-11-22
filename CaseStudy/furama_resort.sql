@@ -352,7 +352,12 @@ where year(hop_dong.ngay_lam_hop_dong) = 2019 and month(hop_dong.ngay_lam_hop_do
 --  (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 -- 
 
-select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, dvdk.gia,dvdk.don_vi,dvdk.trang_thai ;
+select dich_vu_di_kem.ma_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem, dich_vu_di_kem.gia,dich_vu_di_kem.don_vi,dich_vu_di_kem.trang_thai, max(hop_dong_chi_tiet.so_luong) as dich_vu_su_dung_nhieu
+from hop_dong_chi_tiet
+join hop_dong on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+group by hop_dong_chi_tiet.ma_dich_vu_di_kem;
+
 
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
 --  Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung (được tính dựa trên việc count các ma_dich_vu_di_kem).
