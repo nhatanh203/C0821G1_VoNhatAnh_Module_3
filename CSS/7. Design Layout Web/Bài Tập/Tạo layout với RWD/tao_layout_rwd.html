@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 20px;
+        }
+
+        .row::after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        @media only screen and (max-width: 768px) {
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+
+        .menu {
+            background-color: black;
+            color: lightgrey;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .menu1 {
+            height: 62.48px;
+            background-color: black;
+            color: lightgrey;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .body1 {
+            background-color: silver;
+            height: 850px;
+        }
+
+        .body2 {
+
+        }
+
+        .body3 {
+            background-color: silver;
+            height: 850px;
+        }
+
+        .footer {
+            background-color: dimgray;
+            height: 100px;
+            text-align: center;
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col-1 menu">
+        LOGO
+    </div>
+    <div class="col-1 menu" style="color: white">
+        Home
+    </div>
+    <div class="col-1 menu1">
+        About
+    </div>
+    <div class="col-1 menu1">
+        Projects
+    </div>
+    <div class="col-1 menu1">
+        Contact
+    </div>
+    <div class="col-1 menu1">
+
+    </div>
+    <div class="col-1 menu1">
+
+    </div>
+    <div class="col-1 menu1">
+
+    </div>
+    <div class="col-1 menu1">
+
+    </div>
+    <div class="col-1 menu1">
+
+    </div>
+    <div class="col-1 menu1">
+
+    </div>
+    <div class="col-1 menu" style="text-align: center">
+        Login
+    </div>
+</div>
+<div class="row">
+    <div class="col-2 body1">
+        <p style="color: cornflowerblue; text-align : center; font-size : 25px">
+            Link
+        </p>
+        <p style="color: cornflowerblue; text-align : center; font-size : 25px">
+            Link
+        </p>
+        <p style="color: cornflowerblue; text-align : center; font-size : 25px">
+            Link
+        </p>
+    </div>
+    <div class="col-2 body2">
+        <strong style="font-size: 50px">WELCOME</strong>
+    </div>
+    <div class="col-2 body2">
+
+    </div>
+    <div class="col-2 body2">
+
+    </div>
+    <div class="col-2 body2">
+
+    </div>
+    <div class="col-2 body3">
+        <p style="font-size: 40px; text-align: center ">
+            ADS
+        </p>
+        <p style="font-size: 40px; text-align: center ">
+            ADS
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 footer">
+        FOOTER TEX
+    </div>
+</div>
+</body>
+</html>
