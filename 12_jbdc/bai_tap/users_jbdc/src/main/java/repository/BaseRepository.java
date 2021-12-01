@@ -1,4 +1,4 @@
-package repository.impl;
+package repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ public class BaseRepository {
     public static Connection connection;
     private static String jdbcURL = "jdbc:mysql://localhost:3306/student_management";
     private static String jdbcUsername = "root";
-    private static String jdbcPassword = "12345678";
+    private static String jdbcPassword = "hipdeptrai2003";
 
     static {
         try {

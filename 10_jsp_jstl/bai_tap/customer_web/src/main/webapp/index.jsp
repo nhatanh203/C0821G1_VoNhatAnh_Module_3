@@ -47,7 +47,7 @@
     <c:out value="${customerObj.address}"/>
   </td>
   <td>
-    <img src="https://media.vov.vn/sites/default/files/styles/large/public/2021-01/elon_0.jpg" alt="Elon Musk" width="200" height="200">
+    <img width="60px" height="60px" src="<c:out value="${customerObj.image}"/>"/>
   </td>
   </c:forEach>
 </tr>

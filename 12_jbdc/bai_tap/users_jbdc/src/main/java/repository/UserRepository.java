@@ -2,15 +2,11 @@ package repository;
 
 import bean.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO implements IUserDAO{
+public class UserRepository implements IUserRepository {
     private String jdbcURL = "jdbc:mysql://localhost:3306/demo";
     private String jdbcUsername = "root";
     private String jdbcPassword = "hipdeptrai2003";
@@ -22,8 +18,9 @@ public class UserDAO implements IUserDAO{
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
+    private static final String FIND_USERS_SQL = "select * from users where country like ?";
 
-    public UserDAO() {
+    public UserRepository() {
     }
 
     protected Connection getConnection() {
@@ -32,10 +29,8 @@ public class UserDAO implements IUserDAO{
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return connection;
@@ -106,6 +101,29 @@ public class UserDAO implements IUserDAO{
             rowDeleted = statement.executeUpdate() > 0;
         }
         return rowDeleted;
+    }
+
+    @Override
+    public boolean findUser(User user) throws SQLException {
+        try {
+            Statement statement = BaseRepository.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(FIND_USERS_SQL);
+            while (resultSet.next()) {
+                int id = (Integer.parseInt(resultSet.getString("id")));
+                String name = (resultSet.getString("name"));
+                String email = (resultSet.getString("email"));
+                String country = (resultSet.getString("country"));
+
+//                Hiển thị ra màn hình :
+                System.out.println(id);
+                System.out.println(name);
+                System.out.println(email);
+                System.out.println(country);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
     }
 
     public boolean updateUser(User user) throws SQLException {
