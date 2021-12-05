@@ -34,10 +34,22 @@ public class UserServlet extends HttpServlet {
                 case "edit":
                     updateUser(request, response);
                     break;
+                case "find":
+                    findUserByCountry(request, response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void findUserByCountry(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String findCountry = request.getParameter("find");
+        List<User> user = userRepository.findUserByCountry(findCountry);
+        request.setAttribute("user", user);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/find.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,9 +70,9 @@ public class UserServlet extends HttpServlet {
                 case "delete":
                     deleteUser(request, response);
                     break;
-                case "find":
-                   request.getRequestDispatcher("find.jsp").forward(request,response);
-                   break;
+                case "sort":
+                    sortUser(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -70,6 +82,13 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void sortUser(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<User> sortUser = userRepository.sortUserByName();
+        request.setAttribute("sortUser", sortUser);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user/sort.jsp");
+            dispatcher.forward(request, response);
+    }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {

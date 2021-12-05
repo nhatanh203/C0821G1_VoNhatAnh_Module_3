@@ -19,6 +19,9 @@ public class UserRepository implements IUserRepository {
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
     private static final String FIND_USERS_SQL = "select * from users where country like ?";
+    private static final String SORT_USERS_SQL = "select * \n" +
+            " from users\n" +
+            " order by `name`;";
 
     public UserRepository() {
     }
@@ -69,6 +72,30 @@ public class UserRepository implements IUserRepository {
         return user;
     }
 
+    @Override
+    public List<User> sortUserByName() {
+        List<User> listUsers = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+
+             PreparedStatement preparedStatement = connection.prepareStatement(SORT_USERS_SQL)) {
+            System.out.println(preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                listUsers.add(new User(id, name, email, country));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return listUsers;
+    }
+
     public List<User> selectAllUsers() {
 
         List<User> users = new ArrayList<>();
@@ -103,27 +130,45 @@ public class UserRepository implements IUserRepository {
         return rowDeleted;
     }
 
-    @Override
-    public boolean findUser(User user) throws SQLException {
-        try {
-            Statement statement = BaseRepository.connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(FIND_USERS_SQL);
-            while (resultSet.next()) {
-                int id = (Integer.parseInt(resultSet.getString("id")));
-                String name = (resultSet.getString("name"));
-                String email = (resultSet.getString("email"));
-                String country = (resultSet.getString("country"));
+//    @Override
+//    public List<User> findUser() throws SQLException {
+//        List<User> users = new ArrayList<>();
+//        try {
+//            Statement statement = BaseRepository.connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery(FIND_USERS_SQL);
+//            while (resultSet.next()) {
+//                int id = (Integer.parseInt(resultSet.getString("id")));
+//                String name = (resultSet.getString("name"));
+//                String email = (resultSet.getString("email"));
+//                String country = (resultSet.getString("country"));
+//                users.add(new User(id,name,email,country));
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return users;
+//    }
 
-//                Hiển thị ra màn hình :
-                System.out.println(id);
-                System.out.println(name);
-                System.out.println(email);
-                System.out.println(country);
+    @Override
+    public List<User> findUserByCountry(String country) {
+        List<User> user = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(FIND_USERS_SQL);) {
+            preparedStatement.setString(1, "%" + country + "%");
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int id = Integer.parseInt(rs.getString("id"));
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String countrys = rs.getString("country");
+                user.add(new User(id, name, email, countrys));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            printSQLException(e);
         }
-        return false;
+        return user;
     }
 
     public boolean updateUser(User user) throws SQLException {
