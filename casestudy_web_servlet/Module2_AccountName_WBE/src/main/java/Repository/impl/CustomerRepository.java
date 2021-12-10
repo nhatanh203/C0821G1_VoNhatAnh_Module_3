@@ -97,7 +97,6 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

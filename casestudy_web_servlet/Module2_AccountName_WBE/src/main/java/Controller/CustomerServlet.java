@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "CustomerServlet", urlPatterns = {"", "/customerServlet"})
+@WebServlet(name = "CustomerServlet", value = "/customerServlet")
 public class CustomerServlet extends HttpServlet {
     private ICustomerService customerService = new CustomerService();
 
@@ -33,7 +33,7 @@ public class CustomerServlet extends HttpServlet {
                 break;
             default:
                 request.setAttribute("customerListServlet", this.customerService.findAll());
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("home_customer.jsp").forward(request, response);
                 break;
         }
     }
@@ -65,7 +65,7 @@ public class CustomerServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("customerListServlet", customerService.searchCustomer(id));
         try {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("home_customer.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -85,7 +85,7 @@ public class CustomerServlet extends HttpServlet {
         customerService.editCustomer(customer);
         request.setAttribute("customerListServlet", customerService.findAll());
         try {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("home_customer.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -101,7 +101,7 @@ public class CustomerServlet extends HttpServlet {
             }
         }
         request.setAttribute("customerListServlet", customerService.findAll());
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("home_customer.jsp").forward(request, response);
     }
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
@@ -116,7 +116,7 @@ public class CustomerServlet extends HttpServlet {
         customerService.createCustomer(customer);
         request.setAttribute("customerListServlet", customerService.findAll());
         try {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("home_customer.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

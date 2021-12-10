@@ -13,16 +13,31 @@
 <body>
 <h2 style="text-align: center">EDIT CUSTOMER</h2>
 <form method="post">
-    <input type="hidden" name="action" value="create">
+    <input type="hidden" name="action" value="edit">
+
     <div>
-        <input type="text" name="id" placeholder="id">
-        <input type="text" name="typeOfId" placeholder="typeOfId">
-        <input type="text" name="name" placeholder="name">
-        <input type="text" name="birthday" placeholder="birthday (yyyy-mm-dd)">
-        <input type="text" name="gender" placeholder="gender">
-        <input type="text" name="address" placeholder="address">
-        <input type="submit" value="Edit">
+        <input type="text" name="id" placeholder="id want to edit">
     </div>
+    <div>
+        <input type="text" name="typeOfId" placeholder="typeOfId">
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="name">
+    </div>
+    <div>
+        <input type="text" name="birthday" placeholder="birthday (yyyy-mm-dd)">
+    </div>
+    <div>
+        <input type="text" name="gender" placeholder="gender">
+    </div>
+    <div>
+        <input type="text" name="address" placeholder="address">
+    </div>
+    <div>
+        <input type="submit" value="Edit Customer">
+    </div>
+
+</form>
 </form>
 </body>
 </html>
