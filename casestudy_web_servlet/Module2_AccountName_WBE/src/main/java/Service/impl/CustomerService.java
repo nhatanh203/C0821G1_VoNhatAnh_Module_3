@@ -1,6 +1,8 @@
 package Service.impl;
 
 import Bean.Customer;
+import Common.IValidate;
+import Common.Validate;
 import Repository.ICustomerRepository;
 import Repository.impl.CustomerRepository;
 import Service.ICustomerService;
@@ -9,6 +11,7 @@ import java.util.List;
 
 public class CustomerService implements ICustomerService {
     ICustomerRepository customerRepo = new CustomerRepository();
+    IValidate validate = new Validate();
 
     @Override
     public List<Customer> findAll() {
@@ -16,8 +19,13 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void createCustomer(Customer customerObj) {
-        customerRepo.createCustomer(customerObj);
+    public boolean createCustomer(Customer customerObj) {
+        if(validate.checkCustomer(customerObj)) {
+            customerRepo.createCustomer(customerObj);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -26,12 +34,17 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void editCustomer(Customer customerObj) {
-        customerRepo.editCustomer(customerObj);
+    public boolean editCustomer(Customer customerObj) {
+        if(validate.checkCustomer(customerObj)) {
+            customerRepo.editCustomer(customerObj);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
-    public List<Customer> searchCustomer(int id) {
+    public List<Customer> searchCustomer(CharSequence id) {
         return customerRepo.searchCustomer(id);
     }
 }

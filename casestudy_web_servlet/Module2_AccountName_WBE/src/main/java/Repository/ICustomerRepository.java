@@ -9,5 +9,5 @@ public interface ICustomerRepository {
     public void createCustomer(Customer customerObj);
     public void deleteCustomer(Customer customerObj);
     public void editCustomer(Customer customerObj);
-    public List<Customer> searchCustomer(int id);
+    public List<Customer> searchCustomer(CharSequence id);
 }

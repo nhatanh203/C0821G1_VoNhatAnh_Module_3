@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ICustomerService {
     public List<Customer> findAll();
-    public void createCustomer(Customer customerObj);
+    public boolean createCustomer(Customer customerObj);
     public void deleteCustomer(Customer customerObj);
-    public void editCustomer(Customer customerObj);
-    public List<Customer> searchCustomer(int id);
+    public boolean editCustomer(Customer customerObj);
+    public List<Customer> searchCustomer(CharSequence id);
 }

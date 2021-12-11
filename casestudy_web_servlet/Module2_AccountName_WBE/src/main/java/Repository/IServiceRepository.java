@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface IServiceRepository {
     public List<Service> showListService();
-    public void createService(Service employeeObj);
-    public void deleteService(Service employeeObj);
-    public void editService(Service employeeObj);
+    public void createService(Service serviceObj);
+    public void deleteService(Service serviceObj);
+    public void editService(Service serviceObj);
     public List<Service> searchService(int id);
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public class CustomerRepository implements ICustomerRepository {
 
     @Override
-    public List<Customer> searchCustomer(int id) {
+    public List<Customer> searchCustomer(CharSequence id) {
         List<Customer> customerList = new ArrayList<>();
         try {
             PreparedStatement statement = BaseRepository.connection.prepareStatement("select ma_khach_hang, " +
@@ -25,7 +25,7 @@ public class CustomerRepository implements ICustomerRepository {
             Customer customerObj = null;
             while (resultSet.next()) {
                 customerObj = new Customer();
-                customerObj.setId(Integer.parseInt(resultSet.getString("ma_khach_hang")));
+                customerObj.setId(resultSet.getString("ma_khach_hang"));
                 customerObj.setTypeOfId(Integer.parseInt(resultSet.getString("ma_loai_khach")));
                 customerObj.setName(resultSet.getString("ho_ten"));
                 customerObj.setBirthday(resultSet.getString("ngay_sinh"));
@@ -51,7 +51,7 @@ public class CustomerRepository implements ICustomerRepository {
             Customer customerObj = null;
             while (resultSet.next()) {
                 customerObj = new Customer();
-                customerObj.setId(Integer.parseInt(resultSet.getString("ma_khach_hang")));
+                customerObj.setId(resultSet.getString("ma_khach_hang"));
                 customerObj.setTypeOfId(Integer.parseInt(resultSet.getString("ma_loai_khach")));
                 customerObj.setName(resultSet.getString("ho_ten"));
                 customerObj.setBirthday(resultSet.getString("ngay_sinh"));

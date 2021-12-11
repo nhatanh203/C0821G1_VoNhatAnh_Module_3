@@ -45,6 +45,7 @@
 
     <div>
         <input type="text" name="id" placeholder="id">
+        <h4 style="color: red"><c:out value="${messenger}"/></h4>
     </div>
     <div>
         <input type="text" name="typeOfId" placeholder="typeOfId">

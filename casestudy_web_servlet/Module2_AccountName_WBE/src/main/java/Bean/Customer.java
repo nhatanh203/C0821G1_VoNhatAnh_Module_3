@@ -1,7 +1,7 @@
 package Bean;
 
 public class Customer {
-    private int id;
+    private CharSequence id;
     private int typeOfId;
     private String name;
     private String birthday;
@@ -11,7 +11,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, int typeOfId, String name, String birthday, String gender, String address) {
+    public Customer(CharSequence id, int typeOfId, String name, String birthday, String gender, String address) {
         this.id = id;
         this.typeOfId = typeOfId;
         this.name = name;
@@ -20,11 +20,11 @@ public class Customer {
         this.address = address;
     }
 
-    public int getId() {
+    public CharSequence getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(CharSequence id) {
         this.id = id;
     }
 

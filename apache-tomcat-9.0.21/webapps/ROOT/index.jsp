@@ -69,9 +69,11 @@
                 <tr>
                     <th><a href="/customerServlet" style="color:#ffc720">CUSTOMER HOMEPAGE</a></th>
                     <th><a href="/employeeServlet" style="color:#9720ff">EMPLOYEE HOMEPAGE</a></th>
+                    <th><a href="/serviceServlet" style="color:#d3400c">SERVICE HOMEPAGE</a></th>
+                    <th><a href="/contractServlet" style="color:#0f6c1e">CONTRACT HOMEPAGE</a></th>
                 </tr>
             </table>
-      <span style="font-size : 15px">
+            <span style="font-size : 15px">
       </span>
             <span style="font-size : 15px">
       </span>

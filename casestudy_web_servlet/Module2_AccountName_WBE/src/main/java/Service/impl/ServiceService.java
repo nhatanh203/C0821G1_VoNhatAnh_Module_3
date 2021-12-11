@@ -16,22 +16,22 @@ public class ServiceService implements IServiceService {
     }
 
     @Override
-    public void createService(Service employeeObj) {
-
+    public void createService(Service serviceObj) {
+        serviceRepo.createService(serviceObj);
     }
 
     @Override
-    public void deleteService(Service employeeObj) {
-
+    public void deleteService(Service serviceObj) {
+        serviceRepo.deleteService(serviceObj);
     }
 
     @Override
-    public void editService(Service employeeObj) {
-
+    public void editService(Service serviceObj) {
+        serviceRepo.editService(serviceObj);
     }
 
     @Override
     public List<Service> searchService(int id) {
-        return null;
+        return serviceRepo.searchService(id);
     }
 }

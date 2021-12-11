@@ -62,7 +62,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void searchCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
+        CharSequence id = request.getParameter("id");
         request.setAttribute("customerListServlet", customerService.searchCustomer(id));
         try {
             request.getRequestDispatcher("home_customer.jsp").forward(request, response);
@@ -74,7 +74,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
+        CharSequence id = request.getParameter("id");
         int typeOfId = Integer.parseInt(request.getParameter("typeOfId"));
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
@@ -82,19 +82,23 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
 
         Customer customer = new Customer(id, typeOfId, name, birthday, gender, address);
-        customerService.editCustomer(customer);
-        request.setAttribute("customerListServlet", customerService.findAll());
-        try {
-            request.getRequestDispatcher("home_customer.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        boolean check = this.customerService.editCustomer(customer);
+        if(check) {
+            request.setAttribute("customerListServlet", customerService.findAll());
+            try {
+                request.getRequestDispatcher("home_customer.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            request.setAttribute("messenger","Edit False");
         }
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        CharSequence id = request.getParameter("id");
         for (Customer customer : customerService.findAll()) {
             if (id == customer.getId()) {
                 customerService.deleteCustomer(customer);
@@ -105,7 +109,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
+        CharSequence id = request.getParameter("id");
         int typeOfId = Integer.parseInt(request.getParameter("typeOfId"));
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
@@ -113,14 +117,18 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
 
         Customer customer = new Customer(id, typeOfId, name, birthday, gender, address);
-        customerService.createCustomer(customer);
-        request.setAttribute("customerListServlet", customerService.findAll());
-        try {
-            request.getRequestDispatcher("home_customer.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        boolean check = this.customerService.createCustomer(customer);
+        if(check) {
+            request.setAttribute("customerListServlet", customerService.findAll());
+            try {
+                request.getRequestDispatcher("home_customer.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            request.setAttribute("messenger","Create False");
         }
     }
 }

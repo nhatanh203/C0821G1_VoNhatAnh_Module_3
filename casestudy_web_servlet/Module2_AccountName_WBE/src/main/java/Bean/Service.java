@@ -4,17 +4,17 @@ public class Service {
     private int id;
     private String name;
     private int area;
-    private int rentalCost;
+    private double rentalCost;
     private int maxOfPeople;
     private String roomStandard;
     private String description;
-    private int poolAre;
+    private double poolArea;
     private int numberOfFloor;
 
     public Service() {
     }
 
-    public Service(int id, String name, int area, int rentalCost, int maxOfPeople, String roomStandard, String description, int poolAre, int numberOfFloor) {
+    public Service(int id, String name, int area, double rentalCost, int maxOfPeople, String roomStandard, String description, double poolArea, int numberOfFloor) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -22,7 +22,7 @@ public class Service {
         this.maxOfPeople = maxOfPeople;
         this.roomStandard = roomStandard;
         this.description = description;
-        this.poolAre = poolAre;
+        this.poolArea = poolArea;
         this.numberOfFloor = numberOfFloor;
     }
 
@@ -50,11 +50,11 @@ public class Service {
         this.area = area;
     }
 
-    public int getRentalCost() {
+    public double getRentalCost() {
         return rentalCost;
     }
 
-    public void setRentalCost(int rentalCost) {
+    public void setRentalCost(double rentalCost) {
         this.rentalCost = rentalCost;
     }
 
@@ -82,12 +82,12 @@ public class Service {
         this.description = description;
     }
 
-    public int getPoolAre() {
-        return poolAre;
+    public double getPoolArea() {
+        return poolArea;
     }
 
-    public void setPoolAre(int poolAre) {
-        this.poolAre = poolAre;
+    public void setPoolArea(double poolArea) {
+        this.poolArea = poolArea;
     }
 
     public int getNumberOfFloor() {
